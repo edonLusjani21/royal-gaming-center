@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Gaming Center - Reservations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1, h3 {
+            color: #2C3E50;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .header .title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #3498DB;
+        }
+
+        .header .insta-button {
+            margin-left: 20px;
+        }
+
+        .header .insta-button button {
+            background: url('static/images/insta.webp') no-repeat center;
+            background-size: cover;
+            width: 60px;
+            height: 60px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .room {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .room h2 {
+            color: #3498DB;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .pc-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pc-item {
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            background-color: #ECF0F1;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .pc-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .pc-item input {
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .pc-item label {
+            font-size: 14px;
+            color: #2C3E50;
+        }
+
+        .reservation-form {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reservation-form label {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #2C3E50;
+            display: block;
+        }
+
+        .reservation-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #BDC3C7;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #fff;
+        }
+
+        .reservation-form input:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        .submit-btn {
+            padding: 12px 20px;
+            background-color: #3498DB;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980B9;
+        }
+
+        .success-message {
+            margin-top: 20px;
+            background-color: #E8F8F5;
+            color: #16A085;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .submit-btn:disabled {
+            background-color: #BDC3C7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <!-- Logo and Title -->
+        <img src="static/images/Logo.jpg" alt="Royal Gaming Center Logo" class="logo">
+        <div class="title">Royal Gaming Center</div>
+
+        <!-- Instagram Button -->
+        <div class="insta-button">
+            <button onclick="window.location.href='https://www.instagram.com/royalgaming1__/'"></button>
+        </div>
+    </div>
+
+    <h3>Make a Reservation</h3>
+
+    <div class="room" id="soba-1">
+        <h2>Soba 1</h2>
+        <div class="pc-list">
+            <div class="pc-item">
+                <input type="checkbox" id="soba1-pc1" value="Soba 1, PC 1">
+                <label for="soba1-pc1">PC 1</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba1-pc2" value="Soba 1, PC 2">
+                <label for="soba1-pc2">PC 2</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba1-pc3" value="Soba 1, PC 3">
+                <label for="soba1-pc3">PC 3</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba1-pc4" value="Soba 1, PC 4">
+                <label for="soba1-pc4">PC 4</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba1-pc5" value="Soba 1, PC 5">
+                <label for="soba1-pc5">PC 5</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="room" id="soba-2">
+        <h2>Soba 2</h2>
+        <div class="pc-list">
+            <div class="pc-item">
+                <input type="checkbox" id="soba2-pc1" value="Soba 2, PC 1">
+                <label for="soba2-pc1">PC 1</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba2-pc2" value="Soba 2, PC 2">
+                <label for="soba2-pc2">PC 2</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba2-pc3" value="Soba 2, PC 3">
+                <label for="soba2-pc3">PC 3</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba2-pc4" value="Soba 2, PC 4">
+                <label for="soba2-pc4">PC 4</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba2-pc5" value="Soba 2, PC 5">
+                <label for="soba2-pc5">PC 5</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="room" id="soba-3">
+        <h2>Soba 3</h2>
+        <div class="pc-list">
+            <div class="pc-item">
+                <input type="checkbox" id="soba3-pc1" value="Soba 3, PC 1">
+                <label for="soba3-pc1">PC 1</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba3-pc2" value="Soba 3, PC 2">
+                <label for="soba3-pc2">PC 2</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba3-pc3" value="Soba 3, PC 3">
+                <label for="soba3-pc3">PC 3</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba3-pc4" value="Soba 3, PC 4">
+                <label for="soba3-pc4">PC 4</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba3-pc5" value="Soba 3, PC 5">
+                <label for="soba3-pc5">PC 5</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="room" id="soba-4">
+        <h2>Soba 4</h2>
+        <div class="pc-list">
+            <div class="pc-item">
+                <input type="checkbox" id="soba4-pc1" value="Soba 4, PC 1">
+                <label for="soba4-pc1">PC 1</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba4-pc2" value="Soba 4, PC 2">
+                <label for="soba4-pc2">PC 2</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba4-pc3" value="Soba 4, PC 3">
+                <label for="soba4-pc3">PC 3</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba4-pc4" value="Soba 4, PC 4">
+                <label for="soba4-pc4">PC 4</label>
+            </div>
+            <div class="pc-item">
+                <input type="checkbox" id="soba4-pc5" value="Soba 4, PC 5">
+                <label for="soba4-pc5">PC 5</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reservation Form -->
+    <div class="reservation-form">
+        <h3>Enter Reservation Details</h3>
+        <form id="reservation-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date">Reservation Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Reservation Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <input type="submit" class="submit-btn" value="Submit Reservation">
+        </form>
+
+        <div class="success-message" id="success-message" style="display: none;">
+            Reservation successfully submitted!
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle form submission
+        document.getElementById('reservation-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            // Get form data
+            var name = document.getElementById('name').value;
+            var date = document.getElementById('date').value;
+            var time = document.getElementById('time').value;
+
+            // Get selected PCs
+            var selectedPcs = [];
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(function (checkbox) {
+                selectedPcs.push(checkbox.value);
+            });
+
+            // If no PCs selected, show error message
+            if (selectedPcs.length === 0) {
+                alert("Please select at least one PC.");
+                return;
+            }
+
+            // Send the form data to the server (using fetch)
+            fetch('/submit-reservation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    date: date,
+                    time: time,
+                    selected_pcs: selectedPcs.join(',')
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('success-message').style.display = 'block';
+                } else {
+                    alert(data.message || 'Something went wrong!');
+                }
+            })
+            .catch(error => {
+                alert('Error: ' + error.message);
+            });
+        });
+    </script>
+
+</body>
+</html>
